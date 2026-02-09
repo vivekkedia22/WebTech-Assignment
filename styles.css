@@ -1,0 +1,148 @@
+body {
+  text-align: center;
+  background-color: #011F3F;
+}
+
+#level-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 3rem;
+  margin:  5%;
+  color: #FEF2BF;
+}
+
+.container {
+  display: block;
+  width: 50%;
+  margin: auto;
+
+}
+
+.btn {
+  margin: 25px;
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  border: 10px solid black;
+  border-radius: 20%;
+}
+
+.game-over {
+  background-color: red;
+  opacity: 0.8;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.pressed {
+  box-shadow: 0 0 20px white;
+  background-color: grey;
+}
+
+.form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.form-box {
+  background-color: #011F3F;
+  padding: 30px;
+  border: 5px solid #FEF2BF;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.form-box h2 {
+  font-family: 'Press Start 2P', cursive;
+  color: #FEF2BF;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.form-box input {
+  width: 80%;
+  padding: 10px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  border: 2px solid #FEF2BF;
+  background-color: #022a52;
+  color: #FEF2BF;
+}
+
+.form-box button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.form-box button:hover {
+  background-color: darkgreen;
+}
+
+#error-msg {
+  color: red;
+  font-size: 0.8rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+#player-info {
+  font-family: 'Press Start 2P', cursive;
+  color: #FEF2BF;
+  font-size: 1rem;
+  margin-top: -20px;
+}
+
+.hidden {
+  display: none;
+}
+
+#leaderboard {
+  margin-top: 30px;
+  border-top: 2px solid #FEF2BF;
+  padding-top: 20px;
+}
+
+#leaderboard h3 {
+  font-family: 'Press Start 2P', cursive;
+  color: #FEF2BF;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+#score-list {
+  list-style-position: inside;
+  padding: 0;
+  color: #FEF2BF;
+  font-size: 0.8rem;
+  text-align: left;
+}
+
+#score-list li {
+  margin: 5px 0;
+}
