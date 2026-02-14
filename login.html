@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Login - Simon Game</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+</head>
+
+<body>
+  <header></header>
+  <div class="page-content">
+    <div class="auth-page">
+      <div class="auth-container">
+      <h1>Simon Game</h1>
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="text" id="loginUsername" placeholder="Username" required>
+        <div class="password-container">
+          <input type="password" id="loginPassword" placeholder="Password" required>
+          <span class="toggle-password" onclick="togglePassword('loginPassword')">👁️</span>
+        </div>
+        <span id="login-error" class="error-msg"></span>
+        <button type="submit">Login</button>
+      </form>
+      <p class="switch-form">Don't have an account? <a href="signup.html">Sign Up</a></p>
+    </div>
+  </div>
+  </div>
+  <footer></footer>
+
+  <script src="auth.js"></script>
+</body>
+
+</html>

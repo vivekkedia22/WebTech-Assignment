@@ -6,36 +6,28 @@ var userClickedPattern = [];
 var started = false;
 var level = 0;
 var playerName = "";
+var currentUsername = "";
 var bestScore = 0;
 
-showLeaderboard();
+var currentUser = localStorage.getItem("currentUser");
+if (!currentUser) {
+  window.location.href = "login.html";
+} else {
+  var users = JSON.parse(localStorage.getItem("users") || "{}");
+  if (users[currentUser]) {
+    currentUsername = currentUser;
+    playerName = users[currentUser].name;
+    bestScore = users[currentUser].score || 0;
+    updatePlayerInfo();
+  } else {
+    window.location.href = "login.html";
+  }
+}
 
-var form = document.getElementById("nameForm");
-form.addEventListener("submit", function(e) {
-  e.preventDefault();
-  var nameInput = document.getElementById("playerName").value;
-  var errorMsg = document.getElementById("error-msg");
-  
-  if (nameInput.trim() === "") {
-    errorMsg.innerText = "Name cannot be empty!";
-    return;
-  }
-  
-  if (nameInput.length < 2) {
-    errorMsg.innerText = "Name must be at least 2 characters!";
-    return;
-  }
-  
-  playerName = nameInput;
-  document.getElementById("player-form").classList.add("hidden");
-  
-  var saved = localStorage.getItem(playerName);
-  if (saved) {
-    bestScore = parseInt(saved);
-  }
-  
-  updatePlayerInfo();
-});
+function logout() {
+  localStorage.removeItem("currentUser");
+  window.location.href = "login.html";
+}
 
 document.addEventListener("keypress", function () {
   if (!started && playerName !== "") {
@@ -83,8 +75,11 @@ function checkAnswer(currentLevel) {
 
     if (level > bestScore) {
       bestScore = level;
-      localStorage.setItem(playerName, bestScore);
-      showLeaderboard();
+      var users = JSON.parse(localStorage.getItem("users") || "{}");
+      if (users[currentUsername]) {
+        users[currentUsername].score = bestScore;
+        localStorage.setItem("users", JSON.stringify(users));
+      }
     }
 
     document.getElementById("level-title").innerText =
@@ -134,32 +129,4 @@ function animatePress(currentColor) {
 function updatePlayerInfo() {
   var info = "Player: " + playerName + " | Best: " + bestScore;
   document.getElementById("player-info").innerText = info;
-}
-
-function showLeaderboard() {
-  var scores = [];
-  for (var i = 0; i < localStorage.length; i++) {
-    var key = localStorage.key(i);
-    var value = parseInt(localStorage.getItem(key));
-    if (!isNaN(value)) {
-      scores.push({name: key, score: value});
-    }
-  }
-  
-  scores.sort(function(a, b) {
-    return b.score - a.score;
-  });
-  
-  var list = document.getElementById("score-list");
-  list.innerHTML = "";
-  
-  for (var i = 0; i < Math.min(5, scores.length); i++) {
-    var li = document.createElement("li");
-    li.innerText = scores[i].name + ": " + scores[i].score;
-    list.appendChild(li);
-  }
-  
-  if (scores.length === 0) {
-    list.innerHTML = "<li>No scores yet!</li>";
-  }
 }

@@ -1,6 +1,33 @@
 body {
   text-align: center;
   background-color: #011F3F;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  width: 100%;
+  height: 80px;
+  background-image: url('public/images/vitap_logo.jpeg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+footer {
+  width: 100%;
+  height: 80px;
+  background-image: url('public/images/vitap_logo.jpeg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.page-content {
+  flex: 1;
 }
 
 #level-title {
@@ -71,6 +98,8 @@ body {
   border: 5px solid #FEF2BF;
   border-radius: 10px;
   text-align: center;
+  max-width: 400px;
+  width: 90%;
 }
 
 .form-box h2 {
@@ -88,6 +117,35 @@ body {
   border: 2px solid #FEF2BF;
   background-color: #022a52;
   color: #FEF2BF;
+  box-sizing: border-box;
+}
+
+.password-container {
+  position: relative;
+  width: 100%;
+}
+
+.password-container input {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  user-select: none;
+  font-size: 1.2rem;
+}
+
+.form-box input:invalid:not(:placeholder-shown) {
+  border-color: #ff6b6b;
+}
+
+.form-box input:valid:not(:placeholder-shown) {
+  border-color: #51cf66;
 }
 
 .form-box button {
@@ -111,6 +169,25 @@ body {
   margin-bottom: 10px;
 }
 
+#login-error, #signup-error {
+  color: red;
+  font-size: 0.8rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.switch-form {
+  color: #FEF2BF;
+  font-size: 0.8rem;
+  margin-top: 15px;
+}
+
+.switch-form a {
+  color: lightblue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 #player-info {
   font-family: 'Press Start 2P', cursive;
   color: #FEF2BF;
@@ -120,6 +197,163 @@ body {
 
 .hidden {
   display: none;
+}
+
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.auth-container {
+  background-color: #011F3F;
+  padding: 40px;
+  border: 5px solid #FEF2BF;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+.auth-container h1 {
+  font-family: 'Press Start 2P', cursive;
+  color: #FEF2BF;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.auth-container h2 {
+  font-family: 'Press Start 2P', cursive;
+  color: #FEF2BF;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.auth-container input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  border: 2px solid #FEF2BF;
+  background-color: #022a52;
+  color: #FEF2BF;
+  box-sizing: border-box;
+}
+
+.auth-container input:invalid:not(:placeholder-shown) {
+  border-color: #ff6b6b;
+}
+
+.auth-container input:valid:not(:placeholder-shown) {
+  border-color: #51cf66;
+}
+
+.auth-container button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  background-color: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.auth-container button:hover {
+  background-color: darkgreen;
+}
+
+.error-msg {
+  color: red;
+  font-size: 0.8rem;
+  display: block;
+  margin-bottom: 10px;
+  min-height: 20px;
+}
+
+.game-header {
+  text-align: center;
+  padding: 20px;
+}
+
+.nav-btn {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  background-color: #022a52;
+  color: #FEF2BF;
+  border: 2px solid #FEF2BF;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 0 10px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.nav-btn:hover {
+  background-color: #FEF2BF;
+  color: #011F3F;
+}
+
+.leaderboard-page {
+  text-align: center;
+  padding: 40px 20px;
+  flex: 1;
+}
+
+.leaderboard-page h1 {
+  font-family: 'Press Start 2P', cursive;
+  color: #FEF2BF;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.leaderboard-container {
+  background-color: rgba(1, 31, 63, 0.8);
+  border: 3px solid #FEF2BF;
+  border-radius: 10px;
+  padding: 30px;
+  margin: 0 auto 30px;
+  max-width: 600px;
+  width: 90%;
+}
+
+.leaderboard-container ol {
+  list-style-position: inside;
+  padding: 0;
+  color: #FEF2BF;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.leaderboard-container li {
+  margin: 10px 0;
+  padding: 15px;
+  background-color: rgba(2, 42, 82, 0.6);
+  border-radius: 5px;
+  border: 1px solid #FEF2BF;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.nav-buttons button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  background-color: #022a52;
+  color: #FEF2BF;
+  border: 2px solid #FEF2BF;
+  cursor: pointer;
+  border-radius: 5px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.nav-buttons button:hover {
+  background-color: #FEF2BF;
+  color: #011F3F;
 }
 
 #leaderboard {
@@ -135,14 +369,37 @@ body {
   margin-bottom: 15px;
 }
 
+#leaderboard-section {
+  background-color: rgba(1, 31, 63, 0.8);
+  border: 3px solid #FEF2BF;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 500px;
+  width: 90%;
+}
+
+#leaderboard-section h3 {
+  font-family: 'Press Start 2P', cursive;
+  color: #FEF2BF;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
 #score-list {
   list-style-position: inside;
   padding: 0;
   color: #FEF2BF;
   font-size: 0.8rem;
   text-align: left;
+  margin: 0 auto;
+  max-width: 400px;
 }
 
 #score-list li {
-  margin: 5px 0;
+  margin: 8px 0;
+  padding: 8px;
+  background-color: rgba(2, 42, 82, 0.6);
+  border-radius: 5px;
 }

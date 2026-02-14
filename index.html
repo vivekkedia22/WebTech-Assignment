@@ -9,24 +9,17 @@
 </head>
 
 <body>
-  <div id="player-form" class="form-overlay">
-    <div class="form-box">
-      <h2>Enter Your Name</h2>
-      <form id="nameForm">
-        <input type="text" id="playerName" placeholder="Your Name" required>
-        <span id="error-msg"></span>
-        <button type="submit">Start Game</button>
-      </form>
-      <div id="leaderboard">
-        <h3>Top Scores</h3>
-        <ol id="score-list"></ol>
-      </div>
+  <header></header>
+  <div class="page-content">
+    <div class="game-header">
+      <button class="nav-btn" onclick="window.location.href='leaderboard.html'">Leaderboard</button>
+      <button class="nav-btn" onclick="logout()">Logout</button>
     </div>
-  </div>
 
-  <h1 id="level-title">Press A Key to Start</h1>
-  <p id="player-info"></p>
-  <div class="container">
+    <h1 id="level-title">Press A Key to Start</h1>
+    <p id="player-info"></p>
+    
+    <div class="container">
     <div lass="row">
 
       <div type="button" id="green" class="btn green">
@@ -50,6 +43,7 @@
     </div>
 
   </div>
+  <footer></footer>
 
   
   <script src="game.js" charset="utf-8"></script>
